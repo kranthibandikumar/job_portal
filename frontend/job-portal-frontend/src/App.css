@@ -1,0 +1,141 @@
+/* Global page setup */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* brand on left, links on right */
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.logout-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Container styling for pages */
+.home-container,
+.applications-container,
+.jobs-container,
+.my-jobs-container,
+.post-job-container,
+.auth-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Auth form fields */
+.auth-container input,
+.auth-container select,
+.post-job-container input,
+.post-job-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Buttons for forms and job cards */
+.auth-container button,
+.post-job-container button,
+.job-card button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Job card styling */
+.job-card {
+  background: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Search bar styling */
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* HOME PAGE SPECIFIC */
+.home-container {
+  text-align: center;
+}
+
+.home-container h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.home-container p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.home-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between the links */
+}
+
+.home-link {
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.home-link:hover {
+  background-color: #0056b3;
+}
+
+/* Small button style */
+.small-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.small-button:hover {
+  background-color: #0056b3;
+}
+
+
