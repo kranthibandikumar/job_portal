@@ -18,7 +18,7 @@ function Profile() {
 
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:9373/users/profile', {
+        const response = await axios.get('https://job-portal-ur5i.onrender.com/users/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProfile(response.data);
@@ -40,7 +40,7 @@ function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put('http://localhost:9373/users/profile', profile, {
+      await axios.put('https://job-portal-ur5i.onrender.com/users/profile', profile, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Profile updated successfully!');

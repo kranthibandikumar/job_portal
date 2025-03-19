@@ -19,7 +19,7 @@ function Applications() {
 
     const fetchApplications = async () => {
       try {
-        const response = await axios.get('http://localhost:9373/applications/seeker-applications', {
+        const response = await axios.get('https://job-portal-ur5i.onrender.com/applications/seeker-applications', {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (isMounted) {

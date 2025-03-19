@@ -32,7 +32,7 @@ function PostJob() {
     }
 
     try {
-      await axios.post('http://localhost:9373/jobs/create', formData, {
+      await axios.post('https://job-portal-ur5i.onrender.com/jobs/create', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Job posted successfully!');

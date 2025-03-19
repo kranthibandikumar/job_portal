@@ -11,7 +11,7 @@ function EmployerApplications() {
     const fetchEmployerApplications = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:9373/applications/employer-applications',
+          'https://job-portal-ur5i.onrender.com/applications/employer-applications',
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -42,7 +42,7 @@ function EmployerApplications() {
   const handleStatusUpdate = async (appId, currentStatus) => {
     try {
       await axios.put(
-        `http://localhost:9373/applications/${appId}/status`,
+        `https://job-portal-ur5i.onrender.com/applications/${appId}/status`,
         { status: currentStatus }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

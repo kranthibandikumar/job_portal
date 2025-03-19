@@ -38,31 +38,31 @@ jobRouter.post("/create", AuthMiddleware, roleMiddleware(["employer"]), async (r
     }
 })
 
+
+
 jobRouter.get("/", AuthMiddleware, async (req, res) => {
-
     try {
-        const { title, location, company, page = 1, limit = 10 } = req.query;
-
+        const { search, page = 1, limit = 10 } = req.query;
         let filter = {};
 
-        if (title) {
-            filter.title = new RegExp(title, "i");
-        }
-        if (location) {
-            filter.location = new RegExp(location, "i");
-        }
-        if (company) {
-            filter.company = new RegExp(company, "i")
+        if (search) {
+            filter.$or = [
+                { title: new RegExp(search, "i") }, 
+                { company: new RegExp(search, "i") },
+                { location: new RegExp(search, "i") }
+            ];
         }
 
-        const jobs = await JobModel.find(filter).skip((page - 1) * limit).limit(parseInt(limit));
+        const totalCount = await JobModel.countDocuments(filter); 
+        const jobs = await JobModel.find(filter)
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit));
 
-        res.status(200).json({ message: "Jobs fetched successfully", jobs });
+        res.status(200).json({ message: "Jobs fetched successfully", jobs, totalCount });
     } catch (error) {
-        res.status(500).json({ message: "Error fetching jobs" });
+        res.status(500).json({ message: "Error fetching jobs", error });
     }
-
-})
+});
 
 
 jobRouter.get("/my-jobs", AuthMiddleware, roleMiddleware(["employer"]), async (req, res) => {
@@ -101,7 +101,7 @@ jobRouter.delete("/:jobId", AuthMiddleware, roleMiddleware(["employer"]), async 
     }
 })
 
-// In job.route.js, after your other routes
+
 jobRouter.get("/:jobId", AuthMiddleware, async (req, res) => {
     try {
       const { jobId } = req.params;

@@ -16,7 +16,7 @@ function MyJobs() {
 
     const fetchMyJobs = async () => {
       try {
-        const response = await axios.get('http://localhost:9373/jobs/my-jobs', {
+        const response = await axios.get('https://job-portal-ur5i.onrender.com/jobs/my-jobs', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setJobs(response.data.jobs);

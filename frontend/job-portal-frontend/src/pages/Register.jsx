@@ -18,7 +18,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:9373/users/register', formData);
+            await axios.post('https://job-portal-ur5i.onrender.com/users/register', formData);
             alert('Registration successful! Please login.');
             navigate('/login');
         } catch (error) {
