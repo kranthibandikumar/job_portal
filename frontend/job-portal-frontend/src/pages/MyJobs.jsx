@@ -41,7 +41,7 @@ function MyJobs() {
               <p>{job.description}</p>
               <p><strong>Company:</strong> {job.company}</p>
               <p><strong>Location:</strong> {job.location}</p>
-              <p><strong>Salary:</strong> ${job.salary}</p>
+              <p><strong>Salary:</strong> {job.salary}</p>
               <p><strong>Applications:</strong> {job.applications?.length || 0}</p>
             </div>
           ))}
