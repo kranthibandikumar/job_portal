@@ -10,7 +10,6 @@ const applicationRouter = require("./routes/application.route")
 const app = express()
 app.use(express.json())
 app.use(cors())
-connectDB();
 const PORT = process.env.PORT
 
 app.get("/health", (req,res) =>{
@@ -23,8 +22,9 @@ app.use("/jobs", jobRouter)
 app.use("/applications", applicationRouter)
 
 
-app.listen(PORT, () => {
-    
+app.listen(PORT, async() => {
+
+    await connectDB();
     console.log(`Server is running on http://localhost:${PORT}`)
 })
 
